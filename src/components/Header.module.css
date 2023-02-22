@@ -1,0 +1,29 @@
+.headerContainer {
+  background: var(--grey-700);
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerContainer hgroup {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.rocket {
+  width: 2rem;
+  height: 2rem;
+}
+
+.title {
+  line-height: 1.6;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--blue-base);
+}
+
+.title span {
+  color: var(--purple-dark);
+}
