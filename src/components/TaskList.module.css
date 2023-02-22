@@ -1,0 +1,64 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.5rem;
+}
+
+.tasksInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.created {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--blue-base);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.done {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--purple-dark);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.count {
+    color: var(--grey-200);
+    border-radius: 999px;
+    background: var(--grey-400);
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+.emptyList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1.5rem;
+  border-radius: 8px;
+  border-top: 1px solid var(--grey-400);
+}
+
+.emptyList svg {
+  color: var(--grey-300);
+  margin-bottom: 1rem;
+}
+
+.emptyList p {
+  line-height: 1.4;
+  font-size: 1rem;
+  color: var(--grey-300);
+}
+
+.emptyList__text--bold {
+  font-weight: 700;
+}
