@@ -34,7 +34,12 @@
   gap: 0.5rem;
 }
 
-.createTaskBtn:hover {
+.createTaskBtn:not(:disabled):hover {
   background: var(--blue-base);
   cursor: pointer;
+}
+
+.createTaskBtn:disabled {
+  filter: brightness(0.7);
+  cursor: not-allowed;
 }

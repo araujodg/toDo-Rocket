@@ -3,7 +3,11 @@ import styles from './Task.module.css';
 import { useState } from 'react';
 import { TasksTypes } from '../App';
 
-export function Task({ content }: TasksTypes) {
+function defaultDelete() {
+  return null
+} 
+
+export function Task({ content, onDeleteClick = defaultDelete, id }: TasksTypes) {
   const [status, setStatus] = useState(0);
 
   function handleChecked() {
@@ -26,7 +30,7 @@ export function Task({ content }: TasksTypes) {
           <Check style={{ display: status === 1 ? 'inline' : 'none' }} />
         </span>
       </label>
-      <button className={styles.deleteBtn} type="button">
+      <button onClick={() => onDeleteClick(id)} className={styles.deleteBtn} type="button">
         <Trash size={24} />
       </button>
     </div>

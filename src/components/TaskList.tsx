@@ -6,9 +6,10 @@ import { TasksTypes } from '../App';
 
 export interface TaskListProps {
   tasks?: TasksTypes[],
+  onDeleteClick: (id: string) => void
 }
 
-export function TaskList({ tasks = [] }: TaskListProps) {
+export function TaskList({ tasks = [], onDeleteClick }: TaskListProps) {
 
   const isTaskListEmpty = tasks.length === 0;
 
@@ -23,7 +24,7 @@ export function TaskList({ tasks = [] }: TaskListProps) {
         <p className={styles['emptyList__text--bold']}>Você ainda não tem tarefas cadastradas</p>
         <p>Crie tarefas e organize seus itens a fazer</p>
       </div> : tasks.map((task: TasksTypes) => (
-         <Task key={task.id} content={task.content} />
+         <Task onDeleteClick={onDeleteClick} id={task.id} key={task.id} content={task.content} />
       ) )}
     </div>
   )

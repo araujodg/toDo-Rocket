@@ -8,7 +8,8 @@ import { useState } from 'react';
 
 export interface TasksTypes {
   content: string,
-  id?: string,
+  id: string,
+  onDeleteClick?: (id: string) => void
 }
 
 export default function App() {
@@ -25,12 +26,17 @@ export default function App() {
     return null
   }
 
+  function handleDeleteTask(id: string) {
+    const tasksWithoutRemoved = tasks.filter((task) => task.id !== id)
+    setTasks(tasksWithoutRemoved)
+  }
+
   return (
     <div className={styles.app}>
       <Header />
       <div className={styles.main}>
         <NewTask onSubmit={handleCreateNewTask} />
-        <TaskList tasks={tasks} />
+        <TaskList onDeleteClick={handleDeleteTask} tasks={tasks} />
       </div>
     </div>
   );
