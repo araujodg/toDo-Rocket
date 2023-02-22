@@ -1,18 +1,14 @@
 import { Clipboard } from 'phosphor-react'
 import { useState } from 'react'
+import { Task } from './Task';
 import styles from './TaskList.module.css'
+import { TasksTypes } from '../App';
 
-interface TasksTypes {
-  content: string,
-  id: string,
-  isDone: boolean,
-}
-
-interface TaskListProps {
+export interface TaskListProps {
   tasks?: TasksTypes[],
 }
 
-export function TaskList({ tasks = [], ...props }: TaskListProps) {
+export function TaskList({ tasks = [] }: TaskListProps) {
 
   const isTaskListEmpty = tasks.length === 0;
 
@@ -26,7 +22,9 @@ export function TaskList({ tasks = [], ...props }: TaskListProps) {
         <Clipboard size={56}/>
         <p className={styles['emptyList__text--bold']}>Você ainda não tem tarefas cadastradas</p>
         <p>Crie tarefas e organize seus itens a fazer</p>
-      </div> : 'Lista não vazia!'}
+      </div> : tasks.map((task: TasksTypes) => (
+         <Task key={task.id} content={task.content} />
+      ) )}
     </div>
   )
 }

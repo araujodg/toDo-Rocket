@@ -4,12 +4,11 @@ import { NewTask } from './components/NewTask';
 
 import styles from './App.module.css';
 import { TaskList } from './components/TaskList';
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 
-interface TasksTypes {
+export interface TasksTypes {
   content: string,
-  id: string,
-  isDone: boolean,
+  id?: string,
 }
 
 export default function App() {
@@ -19,7 +18,6 @@ export default function App() {
     const newTask: TasksTypes = {
       content: taskText,
       id: uuidv4(),
-      isDone: false,
     }
 
     setTasks([...tasks, newTask])
